@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
+import Img from "gatsby-image"
 
 import * as Colors from '../utils/colors'
 // import FishScales from '../images/FishScales.jpg'
@@ -27,7 +28,7 @@ class Section extends Component {
         as={tag}
         style={style}
       >
-        {image && <Image image={image}/>}
+        {image && <Image fluid={image}/>}
         <Content
           padding={padding}
           color={color}
@@ -79,15 +80,15 @@ const Content = styled.div`
 `
 
 // filter: blur(2.5px);
-const Image = styled.div`
+const Image = styled(Img)`
   z-index: -1;
-  position: absolute;
+  position: absolute !important;
   left: 0;
   top: 0;
   height: 100%;
   background-color: ${props => props.bgColor};
   width: 100%;
   background-position: center;
-  background-image: ${props => `url("${props.image}")`};
+  /* background-image: ${props => `url("${props.image}")`}; */
   background-size: cover;
 `
