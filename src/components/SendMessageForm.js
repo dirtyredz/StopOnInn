@@ -38,6 +38,7 @@ export default class SendMessageForm extends Component {
     return (
       <Wrapper>
         <form name="sendmessage" data-netlify-recaptcha="true" netlify-honeypot="bot-field" method="POST" data-netlify="true">
+          <input type="hidden" name="form-name" value="sendmessage" />
           <div style={{ display: 'none' }}>
             <label>Don’t fill this out if you're human: <input name="bot-field" /></label>
           </div>
