@@ -43,15 +43,15 @@ export default class SendMessageForm extends Component {
             <label>Don’t fill this out if you're human: <input name="bot-field" /></label>
           </div>
           <div>
-            <input ref={this.NameInput} value={Name} onChange={this.onNameChange} id="Name" required />
+            <input name="Name" ref={this.NameInput} value={Name} onChange={this.onNameChange} id="Name" required />
             <label htmlFor="Name">NAME</label>
           </div>
           <div>
-            <input ref={this.EmailInput} value={Email} onChange={this.onEmailChange} id="Email" type="email" required />
+            <input name="Email" ref={this.EmailInput} value={Email} onChange={this.onEmailChange} id="Email" type="email" required />
             <label htmlFor="Email">EMAIL</label>
           </div>
           <div>
-            <textarea ref={this.MessageInput} myvalue={Message} value={Message} onChange={this.onMessageChange} id="Message" required />
+            <textarea name="Message" ref={this.MessageInput} myvalue={Message} value={Message} onChange={this.onMessageChange} id="Message" required />
             <label htmlFor="Message">MESSAGE</label>
           </div>
           <button>SEND</button>
