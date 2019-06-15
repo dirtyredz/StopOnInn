@@ -40,7 +40,7 @@ const MenuButton = styled(Link)`
   font-size: 160%;
   font-weight: bold;
   white-space: nowrap;
-  color: ${Colors.White};
+  color: inherit;
 
   &:visited {
     color: inherit;
