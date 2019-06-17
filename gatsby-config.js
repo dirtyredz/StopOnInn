@@ -3,7 +3,7 @@ module.exports = {
   siteMetadata: {
     siteUrl: `https://www.stoponin.com`,
     title: `Stop On Inn`,
-    description: `.`,
+    description: `We are a family-oriented motel & campground located near fishing, hiking, skiing, golfing, ATV and snowmobile trails. Whether you are a family or only one person, we are here to make your stay at Stop On Inn an enjoyable occasion.`,
     author: `Digital Redz | David McClain (Dirtyredz)`,
     phone: '1(715) 637-3154',
     phoneHref: 'tel:1-715-637-3154',
