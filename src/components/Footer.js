@@ -10,9 +10,24 @@ import SendMessageForm from './SendMessageForm'
 import Menu from './Menu'
 import * as Icons from './Icons'
 import BreakPoints from '../utils/breakpoints'
-// import { FooterMenu as Menu} from './Menu'
+import { useStaticQuery, graphql } from "gatsby"
 
 const Footer = props => {
+  const { site } = useStaticQuery(
+    graphql`
+      query {
+        site {
+          siteMetadata {
+            email
+            emailHref
+            phone
+            phoneHref
+          }
+        }
+      }
+    `
+  )
+
   return (
     <Section
       color={Colors.Black}
@@ -25,8 +40,8 @@ const Footer = props => {
         <VerticalSplit>
           <MotelLogoTwo/>
           <div>
-            <ContactInfoLine tag="a" href="tel:1-715-637-3154" icon={Icons.Phone} text="1(715) 637-3154"/>
-            <ContactInfoLine tag="a" href="mailto:stoponinnmotelandcampground@gmail.com" icon={Icons.Envelop} text="stoponinnmotelandcampground@gmail.com"/>
+            <ContactInfoLine tag="a" href={site.siteMetadata.phoneHref} icon={Icons.Phone} text={site.siteMetadata.phone}/>
+            <ContactInfoLine tag="a" href={site.siteMetadata.emailHref} icon={Icons.Envelop} text={site.siteMetadata.email}/>
           </div>
         </VerticalSplit>
         <SendMessageForm />

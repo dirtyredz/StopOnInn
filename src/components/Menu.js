@@ -3,20 +3,32 @@ import styled from 'styled-components'
 import { Link } from "gatsby"
 import * as Colors from '../utils/colors'
 import BreakPoints from '../utils/breakpoints'
+import { useStaticQuery, graphql } from "gatsby"
 
-export default class Menu extends Component {
-  render() {
-    return (
-      <Spread>
-        <MenuButton to="">HOME</MenuButton>
-        <MenuButton to="#ThingsToDo">THINGS TO DO</MenuButton>
-        <MenuButton to="">FAQ</MenuButton>
-        <MenuButton to="">TESTIMONIALS</MenuButton>
-        <MenuButton to="#Contact">CONTACT</MenuButton>
-      </Spread>
-    )
-  }
+function Menu(props) {
+  const { site } = useStaticQuery(
+    graphql`
+      query {
+        site {
+          siteMetadata {
+            links {
+              name
+              to
+            }
+          }
+        }
+      }
+    `
+  )
+
+  return (
+    <Spread>
+      {site.siteMetadata.links.map(link => <MenuButton to={link.to}>{link.name}</MenuButton>)}
+    </Spread>
+  )
 }
+
+export default Menu
 
 const Spread = styled.div`
   display: flex;

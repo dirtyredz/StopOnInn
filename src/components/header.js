@@ -7,64 +7,83 @@ import MotelLogo from './MotelLogo'
 import * as Icons from './Icons'
 import * as Colors from '../utils/colors'
 import Menu from './Menu'
+import { useStaticQuery, graphql } from "gatsby"
 
-const Header = ({ siteTitle }) => (
-  <>
-    <Section
-      color={Colors.Black}
-      bgColor={Colors.White}
-      tag="header"
-      padding={false}
-    >
-      <Spread>
-        <MotelLogo/>
-        <TopMenu>
-          <div>
-            <VerticleBar/><br />
-            <OptionWrapper>
-              <div>
-                <Icons.Phone width={30} />
-                <ContentWrapper>
-                  <header>Contact Phone:</header>
-                  <a href="tel:1-715-637-3154">1(715) 637-3154</a>
-                </ContentWrapper>
-              </div>
-            </OptionWrapper>
-            <VerticleBar/><br />
-            <OptionWrapper>
-              <div>
-                <Icons.Clock width={30} />
-                <ContentWrapper>
-                  <header>Working Hours:</header>
-                  <p>8:00 am to 6:00 pm</p>
-                </ContentWrapper>
-              </div>
-            </OptionWrapper>
-            <VerticleBar/><br />
-            <OptionWrapper>
-              <div>
-                <Icons.Envelop width={30} />
-                <ContentWrapper>
-                  <header>Contact Email:</header>
-                  <a href="mailto:stoponinnmotelandcampground@gmail.com" >stoponinnmotelandcampground@gmail.com</a>
-                </ContentWrapper>
-              </div>
-            </OptionWrapper>
-          </div>
-        </TopMenu>
-      </Spread>
-    </Section>
-    <Section
-      color={Colors.White}
-      bgColor={Colors.DarkGreen}
-      tag="menu"
-      padding={false}
-      style={{margin: 0, padding: 0}}
-    >
-      <Menu/>
-    </Section>
-  </>
-)
+const Header = ({ siteTitle }) => {
+  const { site } = useStaticQuery(
+    graphql`
+      query {
+        site {
+          siteMetadata {
+            email
+            emailHref
+            phone
+            phoneHref
+            hours
+          }
+        }
+      }
+    `
+  )
+
+  return (
+    <>
+      <Section
+        color={Colors.Black}
+        bgColor={Colors.White}
+        tag="header"
+        padding={false}
+      >
+        <Spread>
+          <MotelLogo/>
+          <TopMenu>
+            <div>
+              <VerticleBar/><br />
+              <OptionWrapper>
+                <div>
+                  <Icons.Phone width={30} />
+                  <ContentWrapper>
+                    <header>Contact Phone:</header>
+                    <a href={site.siteMetadata.phoneHref}>{site.siteMetadata.phone}</a>
+                  </ContentWrapper>
+                </div>
+              </OptionWrapper>
+              <VerticleBar/><br />
+              <OptionWrapper>
+                <div>
+                  <Icons.Clock width={30} />
+                  <ContentWrapper>
+                    <header>Working Hours:</header>
+                    <p>{site.siteMetadata.hours}</p>
+                  </ContentWrapper>
+                </div>
+              </OptionWrapper>
+              <VerticleBar/><br />
+              <OptionWrapper>
+                <div>
+                  <Icons.Envelop width={30} />
+                  <ContentWrapper>
+                    <header>Contact Email:</header>
+                    <a href={site.siteMetadata.emailHref} >{site.siteMetadata.email}</a>
+                  </ContentWrapper>
+                </div>
+              </OptionWrapper>
+            </div>
+          </TopMenu>
+        </Spread>
+      </Section>
+      <Section
+        color={Colors.White}
+        bgColor={Colors.DarkGreen}
+        tag="menu"
+        padding={false}
+        style={{margin: 0, padding: 0}}
+      >
+        <Menu/>
+      </Section>
+    </>
+  )
+}
 
 Header.propTypes = {
   siteTitle: PropTypes.string,
