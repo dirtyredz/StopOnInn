@@ -33,7 +33,7 @@ const Wrapper = styled.section`
   text-align: center;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   margin: 25px;
 
   & hr {
