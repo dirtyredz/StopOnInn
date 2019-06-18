@@ -120,14 +120,14 @@ module.exports = {
         }
       }
     },
-    // {
-    //   resolve: "gatsby-plugin-sentry",
-    //   options: {
-    //     dsn: "https://5855b310b2644e33af154c16da12ad45@sentry.io/1449089",
-    //     // Optional settings, see https://docs.sentry.io/clients/node/config/#optional-settings
-    //     environment: process.env.NODE_ENV,
-    //     enabled: (() => ["production", "stage"].indexOf(process.env.NODE_ENV) !== -1)()
-    //   }
-    // },
+    {
+      resolve: "gatsby-plugin-sentry",
+      options: {
+        dsn: "https://fe740e15653e430a968d3269144c07b6@sentry.io/1484247",
+        // Optional settings, see https://docs.sentry.io/clients/node/config/#optional-settings
+        environment: process.env.NODE_ENV,
+        enabled: (() => ["production", "stage"].indexOf(process.env.NODE_ENV) !== -1)()
+      }
+    },
   ],
 }
