@@ -27,28 +27,45 @@ export const onClientEntry = () => {
 
     const features = [];
 
-    if (!('Intl' in window)) {
-      const locale = window.location.pathname.split('/')[1];
-      features.push(`Intl.~locale.${locale}`);
+    const isIE = /MSIE|Trident/.test(navigator.userAgent)
+
+    let src = 'https://cdn.polyfill.io/v2/polyfill.min.js?callback=__polyfillCallback'
+
+    if (!isIE) {
+      // if (!('Set' in window)) {
+      //   features.push('Set')
+      // }
+
+      if (!('Map' in window)) {
+        features.push('Map')
+      }
+
+      if (!('Intl' in window)) {
+        features.push('Intl.~locale.en')
+      }
+
+      // if (!('fetch' in window)) {
+      //   features.push('fetch')
+      // }
+
+      // if (!('URL' in window && 'URLSearchParams' in window)) {
+      //   features.push('URL')
+      // }
+
+      if (!features.length) {
+        resolve()
+        return
+      }
+
+      src += `&features=${features.join(',')}`
     }
 
-    // if (!('fetch' in window)) {
-    //   features.push('fetch');
-    // }
-
-    // ... detect other missing features
-
-    if (features.length) {
-      const s = document.createElement('script');
-      s.src = `https://cdn.polyfill.io/v2/polyfill.min.js?features=${features.join(
-        ',',
-      )}&rum=1&flags=always&callback=__polyfillio__`;
-      s.async = true;
-      s.onerror = reject;
-      document.head.appendChild(s);
-    } else {
-      resolve();
-    }
+    window.__polyfillCallback = resolve
+    const tag = document.createElement('script')
+    tag.src = src
+    tag.async = true
+    tag.onerror = reject
+    document.head.appendChild(tag)
   });
 };
 

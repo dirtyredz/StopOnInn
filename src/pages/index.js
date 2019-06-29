@@ -8,6 +8,7 @@ import MainGrunge from "../components/MainGrunge"
 import TopGrunge from "../components/TopGrunge"
 import BottomGrunge from "../components/BottomGrunge"
 import Section from '../components/Section'
+import Testimonials from '../components/Testimonials'
 import Box from '../components/Box'
 import ServiceBox from '../components/ServiceBox'
 import AboutPhoto from '../components/AboutPhoto'
@@ -248,6 +249,8 @@ const IndexPage = (props) => {
           </VerticalSplit>
         </Split>
       </Section>
+      
+      <Testimonials />
     </Layout>
   )
 }
