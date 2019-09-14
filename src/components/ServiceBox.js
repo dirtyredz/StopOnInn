@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 import PolygonIconGroup from './PolygonIconGroup'
-import * as Colors from '../utils/colors'
 
 export default class ServiceBox extends Component {
   render() {
@@ -9,11 +8,12 @@ export default class ServiceBox extends Component {
       title,
       text,
       Icon,
+      width,
       ...rest
     } = this.props
     return (
       <Wrapper>
-        <PolygonIconGroup align='flex-start' icon={Icon} />
+        <PolygonIconGroup align='flex-start' icon={Icon} width={width} />
         <h4>{title}</h4>
         <p>
           {text}
@@ -28,9 +28,9 @@ const Wrapper = styled.section`
   padding: 20px;
   width: 250px;
   text-align: left;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  /* display: flex; */
+  /* flex-direction: column; */
+  /* justify-content: center; */
   margin: 5px 15px;
 
   & p {

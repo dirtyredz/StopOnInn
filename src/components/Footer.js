@@ -22,6 +22,8 @@ const Footer = props => {
             emailHref
             phone
             phoneHref
+            facebook
+            facebookHref
           }
         }
       }
@@ -40,14 +42,16 @@ const Footer = props => {
         <VerticalSplit>
           <MotelLogoTwo/>
           <div>
-            <ContactInfoLine tag="a" href={site.siteMetadata.phoneHref} icon={Icons.Phone} text={site.siteMetadata.phone}/>
+            <ContactInfoLine color={Colors.White} tag="a" href={site.siteMetadata.phoneHref} icon={Icons.Phone} text={site.siteMetadata.phone}/>
             <ContactInfoLine tag="a" href={site.siteMetadata.emailHref} icon={Icons.Envelop} text={site.siteMetadata.email}/>
+            <ContactInfoLine tag="a" href={site.siteMetadata.facebookHref} icon={Icons.Facebook} text={site.siteMetadata.facebook}/>
           </div>
         </VerticalSplit>
         <SendMessageForm />
       </Split>
       <br />
       <Section
+        anchor="Message"
         color={Colors.Cream}
         bgColor={Colors.LightGreen}
         padding={false}
@@ -99,11 +103,11 @@ const VerticalSplit = styled.div`
 `
 
 const MyLink = styled.a`
-  color: ${Colors.Red};
+  color: ${Colors.Peach};
   text-decoration: none;
 
   &:visited {
-    color: inherit;
+    color: ${Colors.LightGrey};
   }
   &:hover {
     color: ${Colors.LightGrey};

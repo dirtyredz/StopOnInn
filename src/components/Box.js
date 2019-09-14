@@ -7,7 +7,7 @@ export default class Box extends Component {
   render() {
     const {
       title,
-      text,
+      children,
       Icon,
       ...rest
     } = this.props
@@ -17,7 +17,7 @@ export default class Box extends Component {
         <h4>{title}</h4>
         <hr/>
         <p>
-          {text}
+          {children}
         </p>
       </Wrapper>
     )

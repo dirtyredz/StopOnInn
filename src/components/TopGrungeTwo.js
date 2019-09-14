@@ -25,5 +25,6 @@ const MyImage = styled(Img)`
   width: 100%;
   margin-bottom: 25px;
   opacity: 0.93;
+  filter: brightness(79%);
 
 `

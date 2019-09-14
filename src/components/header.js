@@ -53,7 +53,7 @@ const Header = ({ siteTitle }) => {
                 <div>
                   <Icons.Clock width={30} />
                   <ContentWrapper>
-                    <header>Working Hours:</header>
+                    <header>Office Hours:</header>
                     <p>{site.siteMetadata.hours}</p>
                   </ContentWrapper>
                 </div>

@@ -1,4 +1,5 @@
 var Colors = require('./src/utils/colors')
+
 module.exports = {
   siteMetadata: {
     siteUrl: `https://www.stoponin.com`,
@@ -11,11 +12,65 @@ module.exports = {
     addressHref: 'https://goo.gl/maps/3JYtL7wxrjJYkrsf8',
     email: 'stoponinnmotelandcampground@gmail.com',
     emailHref: 'mailto:stoponinnmotelandcampground@gmail.com',
-    hours: '8:00 am to 6:00 pm',
+    facebook: 'Like us on FB',
+    facebookHref: 'https://www.facebook.com/StopOnInn/',
+    hours: '8:00 am to 10:00 pm',
     links: [
       { name: 'HOME', to: '' },
       { name: 'THINGS TO DO', to: '#ThingsToDo' },
       { name: 'CONTACT', to: '#Contact' },
+      { name: 'SEND US A MESSAGE', to: '#Message' },
+    ],
+    services: [
+      // *Clean, Comfortable Rooms~Every room has Queen beds, you choose 1 or 2, the price is the same either way!
+      // *Well Appointed Rooms~Each room has internet, expanded cable, individual climate control and windows that open for fresh air...everything you need for a comfortable stay!
+      // *Working In Town?~Every room has a fridge and microwave. We also offer contractor rates (nightly and weekly) Plus there is room to park your big rig or work truck!
+      // *RV Camping~we have 8 full-service campsites that include water, sewer, 30 amp electric, internet, and cable
+      // *Tent Camping~we have several sites that include 110 electric service for small campers and tents.
+      // *Campground amenities~ Our campground has a bathhouse and dump station. There are also several picnic areas, fire pits, and a play area for kids that can be used by all of our guests-motel and campground alike!
+      // *Ample Parking~our motel-style setup means that you park outside your door, with the ability to keep a close eye on your vehicles, great for motorcycles and all your belongings. There is plenty of parking space for ATV trailers and boats as well!
+      {
+        Title: 'Clean, Comfortable Rooms',
+        Text: 'Every room has Queen beds, you choose 1 or 2, the price is the same either way!',
+        Icon: 'Bed',
+        Width: 35
+      },
+      {
+        Title: 'Well Appointed Rooms',
+        Text: 'Each room has internet, expanded cable, individual climate control and windows that open for fresh air...everything you need for a comfortable stay!',
+        Icon: 'Star',
+        Width: 35
+      },
+      {
+        Title: 'Working In Town?',
+        Text: 'Every room has a fridge and microwave. We also offer contractor rates (nightly and weekly) Plus there is room to park your big rig or work truck!',
+        Icon: 'SuitCase',
+        Width: 35
+      },
+      {
+        Title: 'RV Camping',
+        Text: 'We have 8 full-service campsites that include water, sewer, 30 amp electric, internet, and cable',
+        Icon: 'RV',
+        Width: 45
+      },
+      {
+        Title: 'Tent Camping',
+        Text: 'We have several sites that include 110 electric service for small campers and tents.',
+        Icon: 'Tent',
+        Width: 35
+      },
+      {
+        Title: 'Campground amenities',
+        Text: 'Our campground has a bathhouse and dump station. There are also several picnic areas, fire pits, and a play area for kids that can be used by all of our guests-motel and campground alike!',
+        Icon: 'Camping',
+        Width: 60
+      },
+      {
+        Title: 'Ample Parking',
+        Text: 'Our motel-style setup means that you park outside your door, with the ability to keep a close eye on your vehicles, great for motorcycles and all your belongings. There is plenty of parking space for ATV trailers and boats as well!',
+        Icon: 'Parking',
+        Width: 35
+      },
     ],
     greenLinks: [
       { title: 'BARRON COUNTY & CHETEK', position: -20, links: [
@@ -53,7 +108,7 @@ module.exports = {
         { name: 'Pine Crest Golf', url: 'http://www.pinecrestdallas.com/' },
         { name: 'Turtleback Golf', url: 'https://www.turtlebackgolf.com/' },
       ]},
-      { title: 'WINERIES', position: 30, links: [
+      { title: 'WINERIES & Breweries', position: 30, links: [
         { name: 'Valkyrie Brewery', url: 'http://www.valkyriebrewery.com/' },
         { name: 'LEINENKUGEL', url: 'https://leinie.com/av?url=https://leinie.com/leinie-lodge' },
         { name: 'Clove Meadow Winery', url: 'https://clovermeadow.com/' },

@@ -4,14 +4,14 @@ function hexToRgb(hex) {
 }
 
 module.exports = {
-  Black: "#333333",
+  Black: "#0a0a0a", //"#333333",
   White: "#FFFFFF",
   LightGrey: "rgba(0, 0, 0, 0.27)",
   Grey: "#707070",
   DarkGrey: "#636363",
   Peach: "#E7BAA0",
-  DarkGreen: "#6D7973",
+  DarkGreen: "#52635a",//"#6D7973",
   LightGreen: "#B2B2A2",
-  Cream: '#E5DACE',
+  Cream: "#ecd9c6",//'#E5DACE',
   hexToRgb,
 }

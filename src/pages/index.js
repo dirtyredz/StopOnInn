@@ -10,7 +10,6 @@ import BottomGrunge from "../components/BottomGrunge"
 import Section from '../components/Section'
 import Testimonials from '../components/Testimonials'
 import Box from '../components/Box'
-import ServiceBox from '../components/ServiceBox'
 import AboutPhoto from '../components/AboutPhoto'
 import GreenLinks from '../components/GreenLinks'
 import * as Icons from '../components/Icons'
@@ -20,11 +19,13 @@ import SmallThree from '../components/SmallThree'
 import SmallFour from '../components/SmallFour'
 import TallOne from '../components/TallOne'
 import WideOne from '../components/WideOne'
+import StopOnInnText from '../components/StopOnInnText'
 import ContactInfoLine from '../components/ContactInfoLine'
 import * as Colors from '../utils/colors'
 import { withBreakpoints } from 'react-breakpoints'
 import BreakPoints from '../utils/breakpoints'
 import { useStaticQuery, graphql } from "gatsby"
+import Services from '../components/Services'
 
 const IndexPage = (props) => {
   const { site, Vintage, VintageTwo } = useStaticQuery(
@@ -52,7 +53,13 @@ const IndexPage = (props) => {
             phoneHref
             email
             emailHref
+            facebook
+            facebookHref
             hours
+            links {
+              name
+              to
+            }
             greenLinks {
               title
               position
@@ -71,6 +78,10 @@ const IndexPage = (props) => {
   const secondHalfGreenLinks = site.siteMetadata.greenLinks.slice(half, site.siteMetadata.greenLinks.length);
   const { breakpoints, currentBreakpoint } = props
   const MobileView = breakpoints[currentBreakpoint] <= breakpoints.mobileLandscape
+
+
+  const NumberYears = Math.abs(new Date().getFullYear() - 1969);
+
   return (
     <Layout>
       <SEO title="Home" />
@@ -81,9 +92,9 @@ const IndexPage = (props) => {
         padding={false}
       >
         <Shadow>
-          <h1>Welcome to Stop On Inn</h1>
+          <h1>Welcome to <StopOnInnText /></h1>
           <br />
-          <p>We are a family-oriented motel & campground located near fishing, hiking, skiing, golfing, ATV and snowmobile trails. Whether you are a family or only one person, we are here to make your stay at Stop On Inn an enjoyable occasion.</p>
+          <p>We are a family-oriented motel & campground located near fishing, hiking, skiing, golfing, ATV and snowmobile trails. Whether you are in town for work or play a family or only one person, we are here to make your stay at <StopOnInnText /> a comfortable and enjoyable occasion.</p>
         </Shadow>
         <MainGrunge />
       </Section>
@@ -95,18 +106,21 @@ const IndexPage = (props) => {
           <Box
             Icon={Icons.Map}
             title="MAP & DIRECTIONS"
-            text="Stop On Inn is located an hour from EAU airport and in the middle of tons of great activity opportunities. Were right off of Hwy 8 so it is quite easy to find us wherever you come from."
-          />
+          >
+            <StopOnInnText /> is located an hour from EAU airport and in the middle of tons of great activity opportunities. Were right off of Hwy 8 so it is quite easy to find us wherever you come from.
+          </Box>
           <Box
             Icon={Icons.Home}
             title="ACCOMMODATION SERVICES"
-            text="Stop On Inn provides high-quality accommodation services to customers that come to our city from all over the world throughout the year."
-          />
+          >
+            <StopOnInnText /> provides high-quality accommodation services to customers that come to our city from all over the world throughout the year.
+          </Box>
           <Box
             Icon={Icons.Star}
             title="GREAT EXPERIENCE"
-            text="We are sure you will have a great experience of staying at Stop On Inn, See what our other customers have said about us."
-          />
+          >
+            We are sure you will have a great experience of staying at <StopOnInnText />, See what our other customers have said about us in our <TextLink to="#Testimonials">testimonials</TextLink>.
+          </Box>
         </TheBoxes>
       </Section>
       <Section
@@ -120,53 +134,13 @@ const IndexPage = (props) => {
           <div>
             <h3>ABOUT US</h3>
             <p>
-              Stop On Inn Motel & Campground, in Barron, WI, is the area's leading motel and campground serving Barron, Rice Lake, Cameron, Chetek and surrounding areas. It has been family owned and operated for 51 years. We offer internet, cable, a fridge, microwave, queen sized beds, coffee makers, full service hookup, a bathhouse, a children's play area, fire pits and much more. For your next stay, contact Stop On Inn Motel & Campground in Barron.
+              <StopOnInnText /> Motel & Campground, in Barron, WI, is the area's leading motel and campground serving Barron, Rice Lake, Cameron, Chetek and surrounding areas. It has been family owned and operated for <time>{NumberYears}</time> years.
             </p>
+            <ContactInfoLine tag="a" href={site.siteMetadata.facebookHref} icon={Icons.Facebook} text={site.siteMetadata.facebook}/>
           </div>
         </Split>
       </Section>
-      <Section
-        color={Colors.Black}
-        bgColor={Colors.Cream}
-        padding={false}
-        style={{textAlign: 'center'}}
-      >
-        <TopGrunge />
-        <h1>WHAT WE OFFER</h1>
-        <TheBoxes>
-          <ServiceBox
-            Icon={Icons.Map}
-            title="LAUNDRY"
-            text="Need to quickly wash your clothes? Our laundry is always at your service."
-          />
-          <ServiceBox
-            Icon={Icons.Map}
-            title="LAUNDRY"
-            text="Need to quickly wash your clothes? Our laundry is always at your service."
-          />
-          <ServiceBox
-            Icon={Icons.Map}
-            title="LAUNDRY"
-            text="Need to quickly wash your clothes? Our laundry is always at your service."
-          />
-          <ServiceBox
-            Icon={Icons.Map}
-            title="LAUNDRY"
-            text="Need to quickly wash your clothes? Our laundry is always at your service."
-          />
-          <ServiceBox
-            Icon={Icons.Map}
-            title="LAUNDRY"
-            text="Need to quickly wash your clothes? Our laundry is always at your service."
-          />
-          <ServiceBox
-            Icon={Icons.Map}
-            title="LAUNDRY"
-            text="Need to quickly wash your clothes? Our laundry is always at your service."
-          />
-        </TheBoxes>
-        <BottomGrunge />
-      </Section>
+      <Services />
       <Section
         color={Colors.Black}
         bgColor={Colors.White}
@@ -241,15 +215,20 @@ const IndexPage = (props) => {
             ></MyIframe>
           </Map>
           <VerticalSplit>
-            <h2>We are Waiting for you</h2>
+            <h2>We are waiting for you</h2>
             <ContactInfoLine tag="a" href={site.siteMetadata.addressHref} icon={Icons.Map} text={site.siteMetadata.address} />
             <ContactInfoLine tag="a" href={site.siteMetadata.phoneHref} icon={Icons.Phone} text={site.siteMetadata.phone} />
             <ContactInfoLine tag="a" href={site.siteMetadata.emailHref} icon={Icons.Envelop} text={site.siteMetadata.email}/>
             <ContactInfoLine icon={Icons.Clock} text={site.siteMetadata.hours} />
+            <ContactInfoLine tag="a" href={site.siteMetadata.facebookHref} icon={Icons.Facebook} text={site.siteMetadata.facebook}/>
+            <Button
+              to={site.siteMetadata.links.find(link => link.name === "SEND US A MESSAGE").to}
+            >
+              SEND US A MESSAGE
+            </Button>
           </VerticalSplit>
         </Split>
       </Section>
-      
       <Testimonials />
     </Layout>
   )
@@ -416,4 +395,36 @@ const MyIframe = styled.iframe`
   width: 100%;
   height: 100%;
   border: 0;
+`
+
+const Button = styled(Link)`
+  background-color: ${Colors.Peach};
+  border: none;
+  width: 100%;
+  font-family: 'Teko';
+  font-size: 200%;
+  cursor: pointer;
+  white-space: nowrap;
+  text-decoration: none;
+  displaY: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+
+  &:visited {
+    color: inherit;
+  }
+`
+
+const TextLink = styled(Link)`
+  color: ${Colors.DarkGreen};
+  white-space: nowrap;
+  /* text-decoration: none; */
+
+  &:visited {
+    color: ${Colors.DarkGreen};
+  }
+  &:hover {
+    color: ${Colors.Peach};
+  }
 `

@@ -5,10 +5,12 @@ import * as Colors from '../utils/colors'
 
 export default function PolygonIconGroup(props) {
   const Icon = props.icon
+  const width = props.width
+  console.log(width)
   return (
     <Wrapper align={props.align}>
       <Polygon width={45}/>
-      {Icon && <Icon width={35}/>}
+      {Icon && <Icon width={width}/>}
     </Wrapper>
   )
 }

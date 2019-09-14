@@ -3,10 +3,10 @@ import styled from 'styled-components'
 import * as Colors from '../utils/colors'
 
 export default function ContactInfoLine(props) {
-  const { icon, tag, ...rest } = props
+  const { icon, tag, color, ...rest } = props
   const TheIcon = icon
   return (
-    <Wrapper as={tag} {...rest}>
+    <Wrapper color={color} as={tag} {...rest}>
       <TheIcon width={30} />
       <h5>{props.text}</h5>
     </Wrapper>
@@ -19,10 +19,10 @@ const Wrapper = styled.div`
   fill: ${Colors.Peach};
   margin-bottom: 10px;
   text-decoration: none;
-  color: ${Colors.Black};
-  
+  color: ${({color}) => color || Colors.Black};
+
   &:visited {
-    color: inherit;
+    color: ${({color}) => color || Colors.Black};
   }
   & h5 {
     margin-left: 15px;
