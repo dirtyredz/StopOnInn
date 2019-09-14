@@ -412,7 +412,7 @@ const Button = styled(Link)`
   text-align: center;
 
   &:visited {
-    color: inherit;
+    color: ${Colors.Peach};
   }
 `
 
