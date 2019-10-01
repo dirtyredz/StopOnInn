@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 import PolygonIconGroup from './PolygonIconGroup'
+import BreakPoints from '../utils/breakpoints'
 
 export default class ServiceBox extends Component {
   render() {
@@ -16,7 +17,14 @@ export default class ServiceBox extends Component {
         <PolygonIconGroup align='flex-start' icon={Icon} width={width} />
         <h4>{title}</h4>
         <p>
-          {text}
+          {text.split('\n').map(function(item, key) {
+            return (
+              <span key={key}>
+                {item}
+                <br/>
+              </span>
+            )
+          })}
         </p>
       </Wrapper>
     )
@@ -32,6 +40,10 @@ const Wrapper = styled.section`
   /* flex-direction: column; */
   /* justify-content: center; */
   margin: 5px 15px;
+  flex: 1 0 20%;
+  @media (max-width: ${BreakPoints.tablet}px) {
+    flex: 1 0 30%;
+  }
 
   & p {
     font-size: 95%;

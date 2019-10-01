@@ -31,6 +31,7 @@ export default function Services() {
       bgColor={Colors.Cream}
       padding={false}
       style={{textAlign: 'center'}}
+      anchor="accommodation"
     >
       <TopGrunge />
       <h1>WHAT WE OFFER</h1>

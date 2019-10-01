@@ -42,9 +42,9 @@ const Footer = props => {
         <VerticalSplit>
           <MotelLogoTwo/>
           <div>
-            <ContactInfoLine color={Colors.White} tag="a" href={site.siteMetadata.phoneHref} icon={Icons.Phone} text={site.siteMetadata.phone}/>
-            <ContactInfoLine tag="a" href={site.siteMetadata.emailHref} icon={Icons.Envelop} text={site.siteMetadata.email}/>
-            <ContactInfoLine tag="a" href={site.siteMetadata.facebookHref} icon={Icons.Facebook} text={site.siteMetadata.facebook}/>
+            <MyContactInfoLine tag="a" href={site.siteMetadata.phoneHref} icon={Icons.Phone} text={site.siteMetadata.phone}/>
+            <MyContactInfoLine tag="a" href={site.siteMetadata.emailHref} icon={Icons.Envelop} text={site.siteMetadata.email}/>
+            <MyContactInfoLine tag="a" href={site.siteMetadata.facebookHref} icon={Icons.Facebook} text={site.siteMetadata.facebook}/>
           </div>
         </VerticalSplit>
         <SendMessageForm />
@@ -75,6 +75,18 @@ Footer.propTypes = {
 }
 
 export default Footer
+
+const MyContactInfoLine = styled(ContactInfoLine)`
+  color: ${Colors.White};
+
+  &:visited {
+    color: ${Colors.White};
+  }
+
+  & h5 {
+    letter-spacing: 2px;
+  }
+`
 
 const Split = styled.div`
   display: flex;

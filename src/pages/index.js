@@ -13,12 +13,6 @@ import Box from '../components/Box'
 import AboutPhoto from '../components/AboutPhoto'
 import GreenLinks from '../components/GreenLinks'
 import * as Icons from '../components/Icons'
-import SmallOne from '../components/SmallOne'
-import SmallTwo from '../components/SmallTwo'
-import SmallThree from '../components/SmallThree'
-import SmallFour from '../components/SmallFour'
-import TallOne from '../components/TallOne'
-import WideOne from '../components/WideOne'
 import StopOnInnText from '../components/StopOnInnText'
 import ContactInfoLine from '../components/ContactInfoLine'
 import * as Colors from '../utils/colors'
@@ -26,9 +20,11 @@ import { withBreakpoints } from 'react-breakpoints'
 import BreakPoints from '../utils/breakpoints'
 import { useStaticQuery, graphql } from "gatsby"
 import Services from '../components/Services'
+import GridGallery from "../components/GridGallery"
+import Gallery from "../components/Gallery/Gallery"
 
 const IndexPage = (props) => {
-  const { site, Vintage, VintageTwo } = useStaticQuery(
+  const { site, Vintage, VintageTwo, ...data } = useStaticQuery(
     graphql`
       query {
         Vintage: file(relativePath: { eq: "Vintage Header.png" }) {
@@ -41,6 +37,48 @@ const IndexPage = (props) => {
         VintageTwo: file(relativePath: { eq: "Stop On Inn Vintage.png" }) {
           childImageSharp {
             fluid(maxWidth: 2000) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
+        smallOne: file(relativePath: { eq: "Small One.jpg" }) {
+          childImageSharp {
+            fluid(maxWidth: 1000) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
+        smallTwo: file(relativePath: { eq: "Small Two.jpg" }) {
+          childImageSharp {
+            fluid(maxWidth: 1000) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
+        smallThree: file(relativePath: { eq: "Small Three.jpg" }) {
+          childImageSharp {
+            fluid(maxWidth: 1000) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
+        smallFour: file(relativePath: { eq: "Small Four.jpg" }) {
+          childImageSharp {
+            fluid(maxWidth: 1000) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
+        tallOne: file(relativePath: { eq: "Tall One.png" }) {
+          childImageSharp {
+            fluid(maxWidth: 1000) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
+        wideOne: file(relativePath: { eq: "Wide One.jpg" }) {
+          childImageSharp {
+            fluid(maxWidth: 1000) {
               ...GatsbyImageSharpFluid
             }
           }
@@ -73,6 +111,7 @@ const IndexPage = (props) => {
       }
     `
   )
+
   const half = Math.floor(site.siteMetadata.greenLinks.length / 2) + 1
   const firstHalfGreenLinks = site.siteMetadata.greenLinks.slice(0, half);
   const secondHalfGreenLinks = site.siteMetadata.greenLinks.slice(half, site.siteMetadata.greenLinks.length);
@@ -94,7 +133,7 @@ const IndexPage = (props) => {
         <Shadow>
           <h1>Welcome to <StopOnInnText /></h1>
           <br />
-          <p>We are a family-oriented motel & campground located near fishing, hiking, skiing, golfing, ATV and snowmobile trails. Whether you are in town for work or play a family or only one person, we are here to make your stay at <StopOnInnText /> a comfortable and enjoyable occasion.</p>
+          <p>We are a family-oriented motel & campground located near fishing, hiking, skiing, golfing, ATV and snowmobile trails. Whether you are in town for work or play, a family or only one person, we are here to make your stay at <StopOnInnText /> a comfortable and enjoyable occasion.</p>
         </Shadow>
         <MainGrunge />
       </Section>
@@ -107,13 +146,13 @@ const IndexPage = (props) => {
             Icon={Icons.Map}
             title="MAP & DIRECTIONS"
           >
-            <StopOnInnText /> is located an hour from EAU airport and in the middle of tons of great activity opportunities. Were right off of Hwy 8 so it is quite easy to find us wherever you come from.
+            <StopOnInnText /> is <TextLink to="#Contact">located</TextLink> an hour from EAU airport and in the middle of tons of great activity opportunities. We are right off of Hwy 8 so it is quite easy to find us wherever you come from.
           </Box>
           <Box
             Icon={Icons.Home}
             title="ACCOMMODATION SERVICES"
           >
-            <StopOnInnText /> provides high-quality accommodation services to customers that come to our city from all over the world throughout the year.
+            <StopOnInnText /> provides high-quality <TextLink to="#accommodation">accommodation</TextLink> services to customers that come to our city from all over the world throughout the year.
           </Box>
           <Box
             Icon={Icons.Star}
@@ -147,7 +186,8 @@ const IndexPage = (props) => {
         anchor="ThingsToDo"
         style={{ textAlign: 'center', marginBottom: 75, zIndex: 2 }}
       >
-        <h1>ACTIVITIES</h1>
+        <h1 style={{ marginBottom: 0, lineHeight: 1, marginTop: 25 }}>ACTIVITIES</h1>
+        <h5 style={{ marginBottom: 25 }}>(Hover or tap each box to show links)</h5>
         <WisconsinWrapper MobileView={MobileView}>
           {MobileView
             ? (
@@ -178,14 +218,51 @@ const IndexPage = (props) => {
         style={{ textAlign: 'center', marginBottom: 100 }}
       >
         <h1>OUR GALLERY</h1>
-        <Grid>
-          <div className="Small"><SmallOne/></div>
-          <div className="Small"><SmallTwo/></div>
-          <div className="Tall"><TallOne/></div>
-          <div className="Small"><SmallThree/></div>
-          <div className="Wide"><WideOne/></div>
-          <div className="Small"><SmallFour/></div>
-        </Grid>
+        <Gallery
+          maxColumns={4}
+          minColumns={2}
+          minRowHeight={150}
+          maxRowHeight={200}
+          images={[
+            {
+              cSpan: 1,
+              rSpan: 1,
+              fluid: data.smallOne.childImageSharp.fluid,
+            },
+            {
+              cSpan: 1,
+              rSpan: 1,
+              fluid: data.smallTwo.childImageSharp.fluid,
+            },
+            {
+              cSpan: 1,
+              rSpan: 2,
+              fluid: data.tallOne.childImageSharp.fluid,
+            },
+            {
+              cSpan: 1,
+              rSpan: 1,
+              fluid: data.smallThree.childImageSharp.fluid,
+            },
+            {
+              cSpan: 2,
+              rSpan: 1,
+              fluid: data.wideOne.childImageSharp.fluid,
+            },
+            {
+              cSpan: 1,
+              rSpan: 1,
+              fluid: data.smallFour.childImageSharp.fluid,
+            },
+          ]}
+        />
+        <br />
+        <Button
+          style={{ width: 300, margin: 'auto' }}
+          to="/Gallery"
+        >
+          SEE MORE
+        </Button>
       </Section>
       <Section
         color={Colors.White}
@@ -295,86 +372,6 @@ const LinkWrapper = styled.div`
   flex-direction: column;
 `
 
-const Grid = styled.div`
-  display: grid;
-  grid-template-columns: repeat(4, minmax(100px, 1fr));
-  @media (max-width: ${BreakPoints.tablet}px) {
-    grid-template-columns: repeat(3, minmax(100px, 1fr));
-  }
-  @media (max-width: ${BreakPoints.mobileLandscape}px) {
-    grid-template-columns: repeat(2, minmax(100px, 1fr));
-  }
-  /* grid-template-columns: auto 200px 200px 200px 200px auto; */
-  grid-template-rows: 200px 200px;
-  @media (max-width: ${BreakPoints.tablet}px) {
-    grid-template-rows: 100px 100px;
-  }
-  grid-row-gap: 5px;
-  grid-column-gap: 5px;
-  justify-items: stretch;
-
-  & div {
-    background-color: red;
-    /* place-self: center; */
-  }
-
-  & .Small {
-    &:nth-of-type(1) {
-      background-color: green;
-      grid-column-start: 1;
-      grid-column-end: 1;
-      grid-row-start: 1;
-      grid-row-end: 1;
-    }
-    &:nth-of-type(2) {
-      background-color: orange;
-      grid-column-start: 2;
-      grid-column-end: 2;
-      grid-row-start: 1;
-      grid-row-end: 1;
-    }
-    &:nth-of-type(6) {
-      background-color: purple;
-      grid-column-start: 4;
-      grid-column-end: 4;
-      grid-row-start: 1;
-      grid-row-end: 1;
-
-      @media (max-width: ${BreakPoints.tablet}px) {
-        display: none;
-      }
-    }
-    &:nth-of-type(4) {
-      background-color: blue;
-      grid-column-start: 4;
-      grid-column-end: 4;
-      grid-row-start: 2;
-      grid-row-end: 2;
-
-      @media (max-width: ${BreakPoints.tablet}px) {
-        display: none;
-      }
-    }
-  }
-  & .Tall {
-    background-color: pink;
-    grid-column-start: 3;
-    grid-column-end: 3;
-    grid-row-start: 1;
-    grid-row-end: 3;
-
-    @media (max-width: ${BreakPoints.mobileLandscape}px) {
-      display: none;
-    }
-  }
-  & .Wide {
-    grid-column-start: 1;
-    grid-column-end: 3;
-    grid-row-start: 2;
-    grid-row-end: 3;
-  }
-`
-
 const Map = styled.div`
   overflow: hidden;
   z-index: 1;
@@ -410,9 +407,10 @@ const Button = styled(Link)`
   justify-content: center;
   flex-direction: column;
   text-align: center;
+  color: ${Colors.Black};
 
   &:visited {
-    color: ${Colors.Peach};
+    color: ${Colors.Black};
   }
 `
 

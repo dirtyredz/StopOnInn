@@ -31,7 +31,9 @@ module.exports = {
       // *Ample Parking~our motel-style setup means that you park outside your door, with the ability to keep a close eye on your vehicles, great for motorcycles and all your belongings. There is plenty of parking space for ATV trailers and boats as well!
       {
         Title: 'Clean, Comfortable Rooms',
-        Text: 'Every room has Queen beds, you choose 1 or 2, the price is the same either way!',
+        Text: `Every room has Queen beds, you choose 1 or 2, the price is the same either way!
+
+We have several pet friendly rooms, be sure to mention pets (or allergies) upon reservation.`,
         Icon: 'Bed',
         Width: 35
       },
@@ -43,8 +45,16 @@ module.exports = {
       },
       {
         Title: 'Working In Town?',
-        Text: 'Every room has a fridge and microwave. We also offer contractor rates (nightly and weekly) Plus there is room to park your big rig or work truck!',
+        Text: `Every room has a fridge and microwave.
+We also offer contractor rates, Plus there is room to park your big rig or work truck!`,
         Icon: 'SuitCase',
+        Width: 35
+      },
+      {
+        Title: 'Ample Parking',
+        Text: `Our motel-style setup means that you park outside your door, with the ability to keep a close eye on your vehicles, great for motorcycles and all your belongings.
+There is plenty of parking space for ATV trailers and boats as well!`,
+        Icon: 'Parking',
         Width: 35
       },
       {
@@ -61,22 +71,25 @@ module.exports = {
       },
       {
         Title: 'Campground amenities',
-        Text: 'Our campground has a bathhouse and dump station. There are also several picnic areas, fire pits, and a play area for kids that can be used by all of our guests-motel and campground alike!',
+        Text: `Our campground has a bathhouse and dump station.
+There are also several picnic areas, fire pits, and a play area for kids that can be used by all of our guests-motel and campground alike!`,
         Icon: 'Camping',
         Width: 60
       },
       {
-        Title: 'Ample Parking',
-        Text: 'Our motel-style setup means that you park outside your door, with the ability to keep a close eye on your vehicles, great for motorcycles and all your belongings. There is plenty of parking space for ATV trailers and boats as well!',
-        Icon: 'Parking',
-        Width: 35
+        Title: 'Here For Recreation?',
+        Text: `We are the perfect "home base" for sportsmen.
+We are centrally located to lots of fishing and public hunting grounds.
+We've got lots of room for gear and trailers, have a fish cleaning station, and can even refer you to great meat processors in the area!`,
+        Icon: 'Fishing',
+        Width: 40
       },
     ],
     greenLinks: [
       { title: 'BARRON COUNTY & CHETEK', position: -20, links: [
         { name: 'Barron County', url: 'https://www.visitbarroncounty.com/' },
         { name: 'Visit Barron County', url: 'https://www.facebook.com/visitbarroncounty' },
-        { name: 'Pioneer Village Museum', url: 'https://www.pioneervillagemuseum.org/' },
+        
         { name: 'Discover Wisconsin', url: 'http://discoverwisconsin.com/search/barron+' },
         { name: 'Explore Wisconsin', url: 'http://www.explorewisconsin.com/spotlight/barroncounty' },
         { name: 'Rice Lake', url: 'http://ricelakewis.com/' },
@@ -86,13 +99,17 @@ module.exports = {
       ]},
       { title: 'ACTIVITIES', position: -40, links: [
         { name: '10 Things To Do', url: 'http://bobber.discoverwisconsin.com/10-things-barron-county/' },
+        { name: 'Pioneer Village Museum', url: 'https://www.pioneervillagemuseum.org/' },
         { name: 'Chetek Activities', url: 'https://chetek.com/activities.html' },
       ]},
       { title: 'VENUES', position: -10, links: [
         { name: 'The Enchanted barn', url: 'http://theenchantedbarn.com/' },
+        { name: 'The Mill', url: 'https://www.themillevents.com/' },
       ]},
       { title: 'ENTERTAINMENT', position: 30, links: [
         { name: 'Red Barn Theatre', url: 'https://www.redbarntheatre-ricelake.com/' },
+        { name: 'Northen Star Theatre', url: 'https://www.facebook.com/nstcricelake/' },
+        { name: 'Stardust Twin Drive In Theatre', url: 'https://www.stardustdriveinmovie.com/' },
       ]},
       { title: 'ATV & SNOWMOBILE TRAILS', position: 10, links: [
         { name: 'Barron Sheriff', url: 'http://barronsheriff.org/atv-information/' },
@@ -108,11 +125,11 @@ module.exports = {
         { name: 'Pine Crest Golf', url: 'http://www.pinecrestdallas.com/' },
         { name: 'Turtleback Golf', url: 'https://www.turtlebackgolf.com/' },
       ]},
-      { title: 'WINERIES & Breweries', position: 30, links: [
+      { title: 'WINERIES & BREWERIES', position: 30, links: [
         { name: 'Valkyrie Brewery', url: 'http://www.valkyriebrewery.com/' },
         { name: 'LEINENKUGEL', url: 'https://leinie.com/av?url=https://leinie.com/leinie-lodge' },
-        { name: 'Clove Meadow Winery', url: 'https://clovermeadow.com/' },
-        { name: 'White Wolf Distillery', url: 'http://www.perlickdistillery.com/' },
+        { name: 'Clover Meadow Winery', url: 'https://clovermeadow.com/' },
+        { name: 'Perlick Distillery', url: 'http://www.perlickdistillery.com/' },
       ]},
     ]
   },
@@ -148,7 +165,7 @@ module.exports = {
         background_color: Colors.White,
         theme_color: Colors.DarkGreen,
         display: `minimal-ui`,
-        icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
+        icon: `src/images/motel1-01.png`, // This path is relative to the root of the site.
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality

@@ -47,7 +47,7 @@ class GreenLinks extends Component {
         onClick={() => Open ? this.onClose : this.onOpen}
         {...rest}
       >
-        <h3>{title}</h3>
+        <h3 style={{ textTransform: 'uppercase' }}>{title}</h3>
         <ul style={{ maxHeight: Open ? '700px' : 0 }}>
           {links.map(link => <li><a href={link.url} >{link.name}</a></li>)}
         </ul>
