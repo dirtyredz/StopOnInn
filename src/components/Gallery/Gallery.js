@@ -73,7 +73,6 @@ export default class Gallery extends Component {
         >
           {this.props.images.map((image, index) => {
             const { fluid, ...rest } = image
-            console.log(Image)
             return (
               <Child
                 {...rest}

@@ -10,7 +10,6 @@ export default class ServiceBox extends Component {
       text,
       Icon,
       width,
-      ...rest
     } = this.props
     return (
       <Wrapper>

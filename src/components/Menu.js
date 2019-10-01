@@ -1,11 +1,11 @@
-import React, { Component } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import { Link } from "gatsby"
 import * as Colors from '../utils/colors'
 import BreakPoints from '../utils/breakpoints'
 import { useStaticQuery, graphql } from "gatsby"
 
-function Menu(props) {
+function Menu() {
   const { site } = useStaticQuery(
     graphql`
       query {

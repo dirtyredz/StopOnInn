@@ -1,7 +1,7 @@
 import React from "react"
 import PropTypes from "prop-types"
 import ScrollUpButton from "react-scroll-up-button";
-import styled, { createGlobalStyle } from 'styled-components'
+import { createGlobalStyle } from 'styled-components'
 import Header from "./header"
 import Footer from "./Footer"
 import Section from './Section'

@@ -43,7 +43,7 @@ export default class Testimonials extends Component {
             Date: node.querySelectorAll('.review-date')[0].innerHTML,
             Rating: parseFloat(node.querySelectorAll('.star-rating-image')[0]
               .getAttribute('src')
-              .match(new RegExp("star_yellow_" + "(.*)" + ".png"))[1]),
+              .match(new RegExp('star_yellow_(.*).png'))[1]),
           }
         })
         this.setState({ reviews: [...reviews, ...newReviews], loading: false, page: page + 1 })

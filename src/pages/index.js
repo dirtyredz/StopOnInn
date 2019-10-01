@@ -20,7 +20,6 @@ import { withBreakpoints } from 'react-breakpoints'
 import BreakPoints from '../utils/breakpoints'
 import { useStaticQuery, graphql } from "gatsby"
 import Services from '../components/Services'
-import GridGallery from "../components/GridGallery"
 import Gallery from "../components/Gallery/Gallery"
 
 const IndexPage = (props) => {

@@ -5,9 +5,6 @@ import SEO from "../components/seo"
 import GridGallery from "../components/Gallery/Gallery"
 import Section from "../components/Section"
 import * as Colors from '../utils/colors'
-import BreakPoints from '../utils/breakpoints'
-import Img from "gatsby-image"
-import styled from 'styled-components'
 
 const Gallery = () => {
   const data = useStaticQuery(graphql`
@@ -206,12 +203,3 @@ const Gallery = () => {
 }
 
 export default Gallery
-
-const MyImage = styled(Img)`
-  height: 100%;
-  width: 100%;
-
-  & img {
-    margin: 0;
-  }
-`

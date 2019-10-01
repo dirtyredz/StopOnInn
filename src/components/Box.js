@@ -1,27 +1,25 @@
-import React, { Component } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import * as Colors from '../utils/colors'
 import PolygonIconGroup from './PolygonIconGroup'
 
-export default class Box extends Component {
-  render() {
-    const {
-      title,
-      children,
-      Icon,
-      ...rest
-    } = this.props
-    return (
-      <Wrapper>
-        <PolygonIconGroup icon={Icon}/>
-        <h4>{title}</h4>
-        <hr/>
-        <p>
-          {children}
-        </p>
-      </Wrapper>
-    )
-  }
+
+export default function Box(props) {
+  const {
+    title,
+    children,
+    Icon,
+  } = props
+  return (
+    <Wrapper>
+      <PolygonIconGroup icon={Icon}/>
+      <h4>{title}</h4>
+      <hr/>
+      <p>
+        {children}
+      </p>
+    </Wrapper>
+  )
 }
 
 const Wrapper = styled.section`
